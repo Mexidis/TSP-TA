@@ -13,12 +13,13 @@ City::City(int id, const std::string& name, const std::string& country, double l
 double City::distance(const City& other)
 {
         const double R = 6373000.0;
+        const double PI = 3.141592653589;
 
         double u_lat, u_long, v_lat, v_long;
-        u_lat = City::getLatitude();
-        u_long = City::getLongitude();
-        v_lat = other.getLatitude();
-        v_long = other.getLongitude();
+        u_lat = getLatitude() * PI / 180.0;
+        u_long = getLongitude() * PI / 180.0;
+        v_lat = other.getLatitude() * PI / 180.0;
+        v_long = other.getLongitude() * PI / 180.0;
 
         const double A = calculate_A(u_lat, v_lat, u_long, v_long);
 

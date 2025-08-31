@@ -3,10 +3,10 @@
 
 int main()
 {
-        City myCity(1, "Zac", "Mx", 19230.34, 12321.4231);
-        City city2(2, "Jerez", "Mx", 19230.34, 12321.4231);
+        City myCity(1, "NY", "EUA", 40.646, -73.777);
+        City city2(2, "Paris", "FR", 49.01280, 2.55000);
 
-        std::cout << myCity.distance(city2) << std::endl;
+        std::cout << city2.distance(myCity) << std::endl;
 
         // std::cout << "City: " << myCity.getName()
         //         << " (" << myCity.getCountry() << ")"
