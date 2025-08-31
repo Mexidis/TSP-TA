@@ -1,30 +1,86 @@
 #include "City.h"
+#include <cmath>
 
-City::City() : id(0), population(0), latitude(0.0), longitude(0.0) {}
-
-City::City(int id, const std::string& name, const std::string& country,
-           int population, double latitude, double longitude)
-    : id(id), name(name), country(country),
-      population(population), latitude(latitude), longitude(longitude) {}
-
-int City::getId() const {
-    return id;
+City::City() : id(0), latitude(0.0), longitude(0.0)
+{
 }
 
-std::string City::getName() const {
-    return name;
+City::City(int id, const std::string& name, const std::string& country, double latitude, double longitude)
+        : id(id), name(name), country(country), latitude(latitude), longitude(longitude)
+{
 }
 
-std::string City::getCountry() const {
-    return country;
+double City::distance(const City& other)
+{
+        const double R = 6373000.0;
+
+        double u_lat, u_long, v_lat, v_long;
+        u_lat = City::getLatitude();
+        u_long = City::getLongitude();
+        v_lat = other.getLatitude();
+        v_long = other.getLongitude();
+
+        const double A = calculate_A(u_lat, v_lat, u_long, v_long);
+
+        double C = 2 * atan2(sqrt(A), sqrt(1 - A));
+
+        return C * R;
 }
 
-int City::getPopulation() const {
-    return population;
+double City::calculate_A(double u_lat, double v_lat, double u_long, double v_long)
+{
+
+        double A = pow(sin((u_lat - v_lat) / 2), 2) +
+                cos(u_lat) * cos(v_lat) * pow(sin((v_long - u_long) / 2), 2);
+        return A;
 }
-double City::getLatitude() const {
-    return latitude;
+
+
+int City::getId() const
+{
+        return id;
 }
-double City::getLongitude() const {
-    return longitude;
+
+std::string City::getName() const
+{
+        return name;
+}
+
+std::string City::getCountry() const
+{
+        return country;
+}
+
+double City::getLatitude() const
+{
+        return latitude;
+}
+
+double City::getLongitude() const
+{
+        return longitude;
+}
+
+void City::setId(int id)
+{
+        this->id = id;
+}
+
+void City::setName(const std::string& name)
+{
+        this->name = name;
+}
+
+void City::setCountry(const std::string& country)
+{
+        this->country = country;
+}
+
+void City::setLatitude(double latitude)
+{
+        this->latitude = latitude;
+}
+void City::setLongitude(double longitude)
+{
+        this->longitude = longitude;
 }

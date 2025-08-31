@@ -1,21 +1,25 @@
 #ifndef TSP_TA_CITY_H
 #define TSP_TA_CITY_H
 
+#include <memory>
 #include <string>
 
-class City {
+class City
+{
 private:
-    int id;
-    std::string name;
-    std::string country;
-    int population;
-    double latitude;
-    double longitude;
+        int id;
+        std::string name;
+        std::string country;
+        double latitude;
+        double longitude;
+        double calculate_A(double, double, double, double);
 
 public:
-    City();
-    City(int id, const std::string& name, const std::string& country,
-         int population, double latitude, double longitude);
+        City();
+        City(int id, const std::string& name, const std::string& country,
+                double latitude, double longitude);
+
+        double distance(const City& other_city);
 
         int getId() const;
         std::string getName() const;
