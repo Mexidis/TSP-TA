@@ -17,12 +17,16 @@ public:
     City(int id, const std::string& name, const std::string& country,
          int population, double latitude, double longitude);
 
-    int getId() const;
-    std::string getName() const;
-    std::string getCountry() const;
-    int getPopulation() const;
-    double getLatitude() const;
-    double getLongitude() const;
+        int getId() const;
+        std::string getName() const;
+        std::string getCountry() const;
+        double getLatitude() const;
+        double getLongitude() const;
+        void setId(int id);
+        void setName(const std::string& name);
+        void setCountry(const std::string& country);
+        void setLatitude(double latitude);
+        void setLongitude(double longitude);
 
 };
 
