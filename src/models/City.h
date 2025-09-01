@@ -18,6 +18,7 @@ public:
         City();
         City(int id, const std::string& name, const std::string& country,
                 double latitude, double longitude);
+        City(int id, const std::string& name, double latitude, double longitude);
 
         double distance(const City& other_city);
 

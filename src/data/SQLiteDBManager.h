@@ -19,7 +19,7 @@ public:
         ~SQLiteDBManager();
 
         std::vector<City>loadCities();
-        std::vector<Path>loadConnections();
+        std::vector<Path>loadConnections(const std::vector<City>& cities);
 
 };
 

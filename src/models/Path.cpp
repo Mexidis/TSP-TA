@@ -5,8 +5,10 @@
 #include "Path.h"
 
 Path::Path(City origin, City destination, double weigth)
+: origin(origin), destination(destination), weigth(weigth)
 {
 }
+
 
 City Path::getOrigin() const
 {

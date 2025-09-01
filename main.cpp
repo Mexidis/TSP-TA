@@ -1,18 +1,23 @@
 #include <iostream>
 #include "City.h"
+#include "data/SQLiteDBManager.h"
 
 int main()
 {
-        City myCity(1, "NY", "EUA", 40.646, -73.777);
-        City city2(2, "Paris", "FR", 49.01280, 2.55000);
+        std::string databasePath = "data/data_tsp.db";
+        try
+        {
+                //connect to database
+                SQLiteDBManager db(databasePath);
 
-        std::cout << city2.distance(myCity) << std::endl;
+                //load data
+                auto cities = db.loadCities();
+                auto conn = db.loadConnections(cities);
 
-        // std::cout << "City: " << myCity.getName()
-        //         << " (" << myCity.getCountry() << ")"
-        //         << " with ID " << myCity.getId()
-        //         << " in coordinates " << myCity.getLatitude()
-        //         << " : " << myCity.getLongitude() << std::endl;
+        } catch   (const std::exception& e) {
+                std::runtime_error(sqliteError());
+        }
+
 
         return 0;
 }
