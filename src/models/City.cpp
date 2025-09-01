@@ -10,6 +10,12 @@ City::City(int id, const std::string& name, const std::string& country, double l
 {
 }
 
+City::City(int id, const std::string& name, double latitude, double longitude)
+        : id(id), name(name), country(country), latitude(latitude), longitude(longitude)
+{
+
+}
+
 double City::distance(const City& other)
 {
         const double R = 6373000.0;
