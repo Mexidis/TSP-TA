@@ -10,6 +10,7 @@ sqlite_dep = dependency('sqlite3', required : true)
 srcs = files(
         'main.cpp',
         'src/models/City.cpp',
+        'src/models/Path.cpp'
         # Here you add more when you create them
 )
 
