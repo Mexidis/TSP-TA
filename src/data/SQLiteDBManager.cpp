@@ -6,11 +6,13 @@
 
 #include <stdexcept>
 
+#include "../models/Graph.h"
+
 SQLiteDBManager::SQLiteDBManager(const std::string& file_path)
 {
         if (sqlite3_open(file_path.c_str(), &db_handler) != SQLITE_OK)
         {
-                throw std::runtime_error("Can't open database: "+ file_path);
+                throw std::runtime_error("Can't open data: "+ file_path);
         }
 }
 
@@ -44,10 +46,9 @@ std::vector<City> SQLiteDBManager::loadCities()
         return cities;
 }
 
-std::vector<Path> SQLiteDBManager::loadConnections(const std::vector<City>& cities)
+void SQLiteDBManager::loadConnectionsFromDB(Graph& graph)
 {
-        std::vector<Path> connections;
-        const char* sql = "SELECT id_city_1, id_city_2, distance FROM distances;";
+        const char* sql = "SELECT id_city_1, id_city_2, distance FROM connections;";
         sqlite3_stmt* stmt;
 
         //this routine is a constructor for the prepared statement object.
@@ -60,22 +61,10 @@ std::vector<Path> SQLiteDBManager::loadConnections(const std::vector<City>& citi
                 int id_city_2 = sqlite3_column_int(stmt, 1);
                 double distance = sqlite3_column_double(stmt, 2);
 
-                // adapt to object City, not int
-                const City* origin = nullptr;
-                const City* destiny = nullptr;
-
-                for (const auto& c : cities) {
-                        if (c.getId() == id_city_1) origin = &c;
-                        if (c.getId() == id_city_2) destiny = &c;
-                }
-
-                if (origin && destiny) {
-                        connections.emplace_back(*origin, *destiny, distance);
-                }
-
+                // load the graph
+                graph.add_edge(id_city_1 - 1, id_city_2 - 1, distance);
         }
 
         sqlite3_finalize(stmt);
-        return connections;
 
 }

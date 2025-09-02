@@ -8,8 +8,9 @@
 #include <sqlite3.h>
 #include <vector>
 
-#include "City.h"
-#include "Path.h"
+#include "../models/Graph.h"
+#include "../models/City.h"
+#include "../models/Path.h"
 
 class SQLiteDBManager
 {
@@ -19,7 +20,7 @@ public:
         ~SQLiteDBManager();
 
         std::vector<City>loadCities();
-        std::vector<Path>loadConnections(const std::vector<City>& cities);
+        void loadConnectionsFromDB(Graph& cities);
 
 };
 

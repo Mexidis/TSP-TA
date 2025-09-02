@@ -1,21 +1,23 @@
 #include <iostream>
-#include "City.h"
-#include "data/SQLiteDBManager.h"
+#include "src/models/City.h"
+#include "src/data/SQLiteDBManager.h"
 
 int main()
 {
-        std::string databasePath = "data/data_tsp.db";
+        const std::string& databasePath = "../data/data_tsp.db";
         try
         {
-                //connect to database
+                //connect to data
                 SQLiteDBManager db(databasePath);
 
                 //load data
                 auto cities = db.loadCities();
-                auto conn = db.loadConnections(cities);
+                Graph graph(cities);
+                db.loadConnectionsFromDB(graph);
 
-        } catch   (const std::exception& e) {
-                std::runtime_error(sqliteError());
+        } catch (const std::exception& e) {
+                std::cerr << "Error: " << e.what() << std::endl;
+                return 1;
         }
 
 
