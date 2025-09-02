@@ -19,6 +19,7 @@ public:
         Graph(const std::vector<City>& cities);
 
         void add_edge(int u_id, int v_id, double distance);
+        void add_edge(City city1, City city2);
         void add_city(City city);
         double weigth(int u_id, int v_id);
         const std::vector<City>& getCities() const;

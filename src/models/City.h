@@ -20,7 +20,7 @@ public:
                 double latitude, double longitude);
         City(int id, const std::string& name, double latitude, double longitude);
 
-        double distance(const City& other_city);
+        double calculateDistance(const City& other_city);
 
         int getId() const;
         std::string getName() const;
