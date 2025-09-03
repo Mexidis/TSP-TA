@@ -9,8 +9,10 @@
 
 class CompleteGraph:public Graph {
 public:
-        generateFromSubgraph(std::vector<City> cities_list);
-        apply_
+        CompleteGraph(const std::vector<City>& subset, const Graph& G);
+
+        double maxd(const std::vector<City>& S) const;   // calculates maxDistance(S)
+        double weight(int u_id, int v_id) const override; // redefines weight with cost Function
 
 };
 
