@@ -1,17 +1,17 @@
 #include "City.h"
 #include <cmath>
-
+//default constructor
 City::City() : id(0), latitude(0.0), longitude(0.0)
 {
 }
-
+//full constructor
 City::City(int id, const std::string& name, const std::string& country, double latitude, double longitude)
         : id(id), name(name), country(country), latitude(latitude), longitude(longitude)
 {
 }
-
+//4 main parameters constructor
 City::City(int id, const std::string& name, double latitude, double longitude)
-        : id(id), name(name), country(country), latitude(latitude), longitude(longitude)
+        : id(id), name(name), latitude(latitude), longitude(longitude)
 {
 
 }
