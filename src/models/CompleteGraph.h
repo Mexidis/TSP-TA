@@ -9,10 +9,10 @@
 
 class CompleteGraph:public Graph {
 public:
-        CompleteGraph(const std::vector<City>& subset);
+        CompleteGraph(std::vector<City>& subset);
 
         // build the complete graph from subset S
-        static CompleteGraph generateFromSubGraph(const Graph& original, const std::vector<City>& subset);
+        static CompleteGraph generateFromSubGraph( Graph& original,  std::vector<City>& subset);
 
         // apply weigth augmented function
         void applyWeigthAugmentedFuntion();
