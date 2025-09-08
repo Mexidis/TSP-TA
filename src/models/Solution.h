@@ -13,11 +13,11 @@ private:
         std::vector<City> route;
 
 public:
-        Solution(const std::vector<City>& cities);
+        Solution( std::vector<City>& cities);
 
-        double length(const CompleteGraph& GS) const;   // sums weights in GS
-        bool isFeasible(const Graph& G) const;          // do all the edges exist?
-        const std::vector<City>& getRoute() const { return route; }
+        double length( CompleteGraph& GS);   // sums weights in GS
+        bool isFeasible( Graph& G);          // do all the edges exist?
+         std::vector<City>& getRoute()  { return route; }
 };
 
 

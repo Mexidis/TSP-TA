@@ -9,10 +9,13 @@
 
 class CompleteGraph:public Graph {
 public:
-        CompleteGraph(const std::vector<City>& subset, const Graph& G);
+        CompleteGraph(const std::vector<City>& subset);
 
-        double maxd(const std::vector<City>& S) const;   // calculates maxDistance(S)
-        double weight(int u_id, int v_id) const override; // redefines weight with cost Function
+        // build the complete graph from subset S
+        static CompleteGraph generateFromSubGraph(const Graph& original, const std::vector<City>& subset);
+
+        // apply weigth augmented function
+        void applyWeigthAugmentedFuntion();
 
 };
 

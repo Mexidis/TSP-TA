@@ -2,7 +2,13 @@ srcs = files(
   'models/City.cpp',
   'models/Graph.cpp',
   'models/Path.cpp',
-  'data/SQLiteDBManager.cpp'
+  'data/SQLiteDBManager.cpp',
+  'models/CompleteGraph.cpp',
+  'models/TSPInstance.cpp',
+  'models/Solution.cpp',
+  'heuristic/CostFunction.cpp',
+  'heuristic/ThresholdAccepting.cpp',
+  'heuristic/Neighborhood.cpp'
 )
 
 incs = include_directories('models', '../data')
@@ -12,6 +18,12 @@ libtsp = static_library(
     ['models/City.cpp',
      'models/Graph.cpp',
      'models/Path.cpp',
-     'data/SQLiteDBManager.cpp'],
+     'data/SQLiteDBManager.cpp',
+     'models/CompleteGraph.cpp',
+     'models/TSPInstance.cpp',
+     'models/Solution.cpp',
+     'heuristic/CostFunction.cpp',
+     'heuristic/ThresholdAccepting.cpp',
+     'heuristic/Neighborhood.cpp'],
     include_directories: include_directories('.')
 )

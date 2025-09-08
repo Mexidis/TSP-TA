@@ -14,6 +14,13 @@ int main()
                 auto cities = db.loadCities();
                 Graph graph(cities);
                 db.loadConnectionsFromDB(graph);
+                db.loadConnectionsFromDB(graph);
+
+                City origin = cities[0];
+                City destination = cities[6];
+                double city_distance = origin.calculateDistance(destination);
+                std::cout << city_distance << std::endl;
+
 
         } catch (const std::exception& e) {
                 std::cerr << "Error: " << e.what() << std::endl;

@@ -15,10 +15,10 @@ private:
         double normalizer;        // N(S)
 
 public:
-        TSPInstance(const std::vector<City>& subset, const Graph& G);
+        TSPInstance( std::vector<City>& subset, Graph& G);
 
-        double getNormalizer() const { return normalizer; }
-        const CompleteGraph& getGS() const { return GS; }
+        double getNormalizer() { return normalizer; }
+        CompleteGraph& getGS() { return GS; }
 
         double computeNormalizer();   // calculates N(S)
 };
