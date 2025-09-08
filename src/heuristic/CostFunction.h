@@ -9,10 +9,8 @@
 
 class CostFunction {
 public:
-        static double evaluate( Solution& P,  TSPInstance& inst) {
-                double numerator = P.length(inst.getGS());
-                return numerator / inst.getNormalizer();
-        }
+        static double normalizer(std::vector<City>& S, CompleteGraph& GS);
+        static double evaluate(Solution& sol, CompleteGraph& GS);
 };
 
 
