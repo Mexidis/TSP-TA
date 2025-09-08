@@ -9,7 +9,7 @@
 Solution::Solution(std::vector<City> &route) : route(route){
 }
 
-double Solution::length(CompleteGraph &GS) {
+double Solution::length(CompleteGraph &GS){
         if (route.size() < 2) return 0.0;
 
         double total = 0.0;
@@ -22,18 +22,26 @@ double Solution::length(CompleteGraph &GS) {
         return total;
 }
 
-bool Solution::isFeasible( Graph &g) {
+bool Solution::isFeasible(Graph &g) {
         //a solution is feasible when it visits each city with no repetition
-        //and there are no infinite weigths
+        //and there are no infinite weights
         if (route.empty()) return false;
 
-        std::vector<bool> visited(g.numCiudades(), false);
+        std::vector<bool> visited(g.numCities(), false);
         for (const auto& c : route) {
-                if (c.getId() < 0 || c.getId() >= g.numCiudades()) return false;
-                if (visited[c.getId()]) return false;
-                visited[c.getId()] = true;
+                if (c.getId() < 0 || c.getId() >= g.numCities()) return false;
+                if (visited[c.getId()]==true) return false; //we need no repetition
+                visited[c.getId()] = true;//otherwise
         }
         // check that the cycle can be closed
         double lastEdge = g.weigth(route.back().getId(), route.front().getId());
-        return lastEdge != std::numeric_limits<double>::infinity();
+        return lastEdge != std::numeric_limits<double>::infinity();//
+}
+
+std::vector<City> & Solution::getRoute() {
+        return route;
+}
+
+void Solution::setRoute(std::vector<City>& newRoute) {
+        route = newRoute;
 }

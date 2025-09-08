@@ -23,7 +23,7 @@ public:
         void add_city(City city);
         double weigth(int u_id, int v_id);
         const std::vector<City>& getCities() const;
-        int numCiudades() const;
+        int numCities() const;
 
 };
 

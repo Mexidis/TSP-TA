@@ -36,7 +36,7 @@ const std::vector<City>& Graph::getCities() const
         return nodes;
 }
 
-int Graph::numCiudades() const
+int Graph::numCities() const
 {
         return nodes.size();
 }
