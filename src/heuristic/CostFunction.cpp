@@ -5,7 +5,7 @@
 #include "CostFunction.h"
 
 
-double CostFunction::normalizer( std::vector<City>& S,  CompleteGraph& GS) {
+double CostFunction::normalizer(std::vector<City>& S, CompleteGraph& GS) {
         double maxDist = 0.0;
         for (int i = 0; i < S.size(); ++i) {
                 for (int j = i+1; j < S.size(); ++j) {
@@ -16,6 +16,6 @@ double CostFunction::normalizer( std::vector<City>& S,  CompleteGraph& GS) {
         return maxDist * S.size(); // worst case estimate
 }
 
-double CostFunction::evaluate( Solution& sol, CompleteGraph& GS) {
+double CostFunction::evaluate(Solution& sol, CompleteGraph& GS) {
         return sol.length(GS);
 }

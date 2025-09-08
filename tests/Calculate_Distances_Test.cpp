@@ -1,8 +1,8 @@
 #include <sqlite3.h>
 #include <gtest/gtest.h>
 
-#include "src/data/SQLiteDBManager.h"
-#include "src/models/Graph.h"
+#include "../src/data/SQLiteDBManager.h"
+#include "../src/models/Graph.h"
 
 TEST(GraphTest, VerifyAllDistances) {
     SQLiteDBManager db("data/data_tsp.db");

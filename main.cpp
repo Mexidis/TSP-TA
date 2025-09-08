@@ -14,7 +14,7 @@ int main()
                 auto cities = db.loadCities();
                 Graph graph(cities);
                 db.loadConnectionsFromDB(graph);
-                db.loadConnectionsFromDB(graph);
+               // db.loadConnectionsFromDB(graph);
 
                 City origin = cities[0];
                 City destination = cities[6];

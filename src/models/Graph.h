@@ -24,6 +24,9 @@ public:
         double weigth(int u_id, int v_id);
         const std::vector<City>& getCities() const;
         int numCities() const;
+        std::vector<City> getNodes();
+        std::vector<std::vector<double>> get_adj_matrix();
+
 
 };
 
