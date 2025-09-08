@@ -10,14 +10,15 @@
 
 class Solution {
 private:
-        std::vector<City> route;
+        std::vector<City> route; //cities route
 
 public:
-        Solution( std::vector<City>& cities);
+        Solution(std::vector<City>& cities);
 
         double length( CompleteGraph& GS);   // sums weights in GS
         bool isFeasible( Graph& G);          // do all the edges exist?
-         std::vector<City>& getRoute()  { return route; }
+        std::vector<City>& getRoute();
+        void setRoute(std::vector<City>& newRoute);
 };
 
 
