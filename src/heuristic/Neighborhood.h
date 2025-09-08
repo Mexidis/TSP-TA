@@ -9,7 +9,7 @@
 
 class Neighborhood {
         // generates a neighbor by exchanging two cities
-        static Solution generateNeighbor(const Solution& sol);
+        static Solution generateNeighbor(Solution& sol);
 };
 
 

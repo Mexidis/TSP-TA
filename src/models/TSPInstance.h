@@ -21,7 +21,7 @@ public:
         bool isFeasable(Solution& sol);
         double maxDistance();  // max distance in S
 
-        GraphCompleto& getGS();
+        CompleteGraph& getGS();
 
 };
 
