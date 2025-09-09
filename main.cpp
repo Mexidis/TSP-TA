@@ -16,6 +16,8 @@ int main()
                 db.loadConnectionsFromDB(graph);
                // db.loadConnectionsFromDB(graph);
 
+
+
                 City origin = cities[0];
                 City destination = cities[6];
                 double city_distance = origin.calculateDistance(destination);

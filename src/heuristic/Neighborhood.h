@@ -8,6 +8,7 @@
 #include "../models/Solution.h"
 
 class Neighborhood {
+public:
         // generates a neighbor by exchanging two cities
         static Solution generateNeighbor(Solution& sol);
 };

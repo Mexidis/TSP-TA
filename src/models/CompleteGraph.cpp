@@ -12,8 +12,8 @@ CompleteGraph::CompleteGraph(std::vector<City> &subset): Graph(subset){
 CompleteGraph CompleteGraph::generateFromSubGraph(Graph &original, std::vector<City> &subset) {
         CompleteGraph gs(subset);
 
-        for (int i = 0; i < subset.size(); ++i) {
-                for (int j = i+1; j < subset.size(); ++j) {
+        for (int i = 0; i < (int)subset.size(); ++i) {
+                for (int j = i+1; j < (int)subset.size(); ++j) {
                         double distance = subset[i].calculateDistance(subset[j]); //using coordinates
                         gs.add_edge(subset[i].getId(), subset[j].getId(), distance);
                 }

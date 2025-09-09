@@ -7,8 +7,8 @@
 
 double CostFunction::normalizer(std::vector<City>& S, CompleteGraph& GS) {
         double maxDist = 0.0;
-        for (int i = 0; i < S.size(); ++i) {
-                for (int j = i+1; j < S.size(); ++j) {
+        for (size_t i = 0; i < S.size(); ++i) {
+                for (size_t j = i+1; j < S.size(); ++j) {
                         double d = GS.weigth(S[i].getId(), S[j].getId());
                         maxDist = std::max(maxDist, d);
                 }

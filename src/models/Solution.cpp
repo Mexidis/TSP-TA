@@ -6,6 +6,8 @@
 
 #include <limits>
 
+Solution::Solution(){}
+
 Solution::Solution(std::vector<City> &route) : route(route){
 }
 

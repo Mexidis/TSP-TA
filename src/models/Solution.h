@@ -13,6 +13,7 @@ private:
         std::vector<City> route; //cities route
 
 public:
+        Solution();
         Solution(std::vector<City>& cities);
 
         double length( CompleteGraph& GS);   // sums weights in GS

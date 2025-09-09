@@ -18,12 +18,17 @@ private:
         Solution bestSolution;
 
 public:
-        ThresholdAccepting(double initial_T, double phi, double epsilon, int L);
+        ThresholdAccepting(double initial_T, double phi, double epsilon, int Len);
 
-        std::pair<double, Solution> calculaLote(double T, Solution& s, CompleteGraph& GS);
+        std::pair<double, Solution> calculateBatch(double T, Solution& s, CompleteGraph& GS);
         Solution execute(Solution& s_inicial, CompleteGraph& GS);
 
-        double initialTemperature(Solution& s, CompleteGraph& GS, double P);
+        double acceptedPercentage(Solution& s, double T, CompleteGraph& GS, int N);
+
+        double binarySearch(Solution& s, double T1, double T2, double P,
+                            CompleteGraph& GS, int N, double epsilon);
+
+        double initialTemperature(Solution& s, CompleteGraph& GS, double P, int N);
 };
 
 

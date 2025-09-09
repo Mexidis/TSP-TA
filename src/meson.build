@@ -8,7 +8,8 @@ srcs = files(
   'models/Solution.cpp',
   'heuristic/CostFunction.cpp',
   'heuristic/ThresholdAccepting.cpp',
-  'heuristic/Neighborhood.cpp'
+  'heuristic/Neighborhood.cpp',
+  'inputs/LoadInputFile.cpp'
 )
 
 incs = include_directories('models', '../data')
@@ -24,6 +25,7 @@ libtsp = static_library(
      'models/Solution.cpp',
      'heuristic/CostFunction.cpp',
      'heuristic/ThresholdAccepting.cpp',
-     'heuristic/Neighborhood.cpp'],
+     'heuristic/Neighborhood.cpp',
+     'inputs/LoadInputFile.cpp'],
     include_directories: include_directories('.')
 )
