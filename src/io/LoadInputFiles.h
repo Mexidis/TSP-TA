@@ -4,10 +4,12 @@
 
 #ifndef TSP_TA_LOADINPUTFILES_H
 #define TSP_TA_LOADINPUTFILES_H
-
+#include <vector>
+#include <string>
 
 class LoadInputFiles {
-        std::vector<int> LoadInputFile();
+public:
+        static std::vector<int> loadInputFile(const std::string& filename);
 };
 
 
