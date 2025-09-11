@@ -15,7 +15,7 @@ double Solution::length(CompleteGraph &GS){
         if (route.size() < 2) return 0.0;
 
         double total = 0.0;
-        for (int i = 0; i < route.size() - 1; ++i) {
+        for (int i = 0; i < (int)route.size() - 1; ++i) {
                 total += GS.weigth(route[i].getId(), route[i+1].getId());
         }
 

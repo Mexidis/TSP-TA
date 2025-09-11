@@ -11,7 +11,7 @@ Graph::Graph(const std::vector<City>& cities): nodes(cities)
 {
         int n = cities.size();
         adj_matrix = std::vector<std::vector<double>>(
-                        n, std::vector<double> (n, std::numeric_limits<double>::infinity()));
+                        n+1, std::vector<double> (n+1, std::numeric_limits<double>::infinity()));
 }
 
 void Graph::add_edge(int u_id, int v_id, double distance)
@@ -53,3 +53,10 @@ std::vector<std::vector<double>> Graph::get_adj_matrix() {
         return adj_matrix;
 }
 
+void Graph::setNodes(std::vector<City> cities) {
+        this->nodes = cities;
+}
+
+void Graph::setAdjMatrix(std::vector<std::vector<double>> adj_matrix) {
+        this->adj_matrix = adj_matrix;
+}

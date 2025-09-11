@@ -7,7 +7,7 @@
 #include <algorithm>
 
 TSPInstance::TSPInstance(std::vector<City> &subset, Graph &G)
-        : S(subset), original_G(G), GS(CompleteGraph::generateFromSubGraph(G,subset)){
+        : S(subset), original_G(G), GS(CompleteGraph::generateFromSubGraph(subset)){
 }
 
 std::vector<Solution> TSPInstance::generatePermutations() {

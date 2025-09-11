@@ -2,14 +2,25 @@
 // Created by patrick on 9/2/25.
 //
 #include "CompleteGraph.h"
+
+#include <iostream>
 #include <limits>
 #include "Graph.h"
 
 
-CompleteGraph::CompleteGraph(std::vector<City> &subset): Graph(subset){
+CompleteGraph::CompleteGraph(std::vector<City> &subset): Graph(std::vector<City>()){
+        int maxId = 0;
+        for (auto &c : subset) {
+                if (c.getId() > maxId) maxId = c.getId();
+        }
+
+        setNodes(subset);
+        setAdjMatrix(std::vector<std::vector<double>>(
+                         maxId + 1, std::vector<double>(maxId + 1, std::numeric_limits<double>::infinity())));
+
 }
 
-CompleteGraph CompleteGraph::generateFromSubGraph(Graph &original, std::vector<City> &subset) {
+CompleteGraph CompleteGraph::generateFromSubGraph(std::vector<City> &subset) {
         CompleteGraph gs(subset);
 
         for (int i = 0; i < (int)subset.size(); ++i) {

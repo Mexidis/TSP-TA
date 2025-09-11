@@ -28,7 +28,7 @@ public:
         double binarySearch(Solution& s, double T1, double T2, double P,
                             CompleteGraph& GS, int N, double epsilon);
 
-        double initialTemperature(Solution& s, CompleteGraph& GS, double P, int N);
+        double initialTemperature(Solution& s, CompleteGraph& GS, double P, int N, double epsilon);
 };
 
 

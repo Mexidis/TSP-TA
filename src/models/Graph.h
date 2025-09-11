@@ -26,6 +26,8 @@ public:
         int numCities() const;
         std::vector<City> getNodes();
         std::vector<std::vector<double>> get_adj_matrix();
+        void setNodes(std::vector<City> cities);
+        void setAdjMatrix(std::vector<std::vector<double>> adj_matrix);
 
 
 };
